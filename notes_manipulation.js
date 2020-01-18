@@ -23,6 +23,7 @@ function addNewNote() {
                 <br />
             </span>
         </form>
+        <span class="delete_note"></span>
         <div>
     </li>`;
 

@@ -63,3 +63,26 @@ form{
 #add__note__text{
     margin-right: 10px;
 }
+
+.delete_note{
+    position: relative;
+    background-image: url("img/rubbish.svg");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 14px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    color: #010049;
+}
+
+.text__area__wrapper{
+    margin-bottom: 0;
+}
+
+
+form {
+    padding-bottom: 0px;
+}
