@@ -1,0 +1,65 @@
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+body {
+    min-width: 320px;
+    margin: 0 auto;
+    background-color: #010049;
+    font-family: sans-serif;
+    font-weight: normal;
+    color:  #e3e7ea;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: 50px 50px 20px 50px;
+}
+
+.notebook__header{
+    padding: 30px;
+}
+
+.notes__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    align-items: center;
+    list-style: none;
+}
+
+
+form{
+    padding: 10px;
+}
+
+.note__content-wrapper{
+    padding: 10px;  
+    box-sizing: border-box;
+    background-color: rgb(255, 248, 148);
+    display: flex;
+    align-items: right;
+    flex-direction: column;
+    margin: 20px 20px 0 0;
+}
+
+#add__note{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-top: 30px;
+    text-align: left;
+    padding: 0 0 0 40px;
+}
+
+#add__note__text{
+    margin-right: 10px;
+}
