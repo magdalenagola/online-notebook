@@ -2,6 +2,7 @@ function main() {
     // event handlers and other code here
 
     document.getElementById("add__note__button").addEventListener('click', addNewNote);
+    addRemoveNoteEventListener();
 }
 
 function addNewNote() {
@@ -18,7 +19,7 @@ function addNewNote() {
         <form class="note_text" method="GET">
             <span class="note_text">
                 <label for="note_text"></label>
-                <p><textarea placeholder="Write a note here" rows="15" cols="30"
+                <p class="text__area__wrapper"><textarea placeholder="Write a note here" rows="15" cols="30"
                         name="note_text"></textarea></p>
                 <br />
             </span>
@@ -28,6 +29,19 @@ function addNewNote() {
     </li>`;
 
     document.getElementsByClassName("notes__wrapper")[0].insertAdjacentHTML('beforeend', empty_note);
+    addRemoveNoteEventListener();
+}
+
+function removeNote(){
+    this.parentNode.parentNode.removeChild(this.parentNode);
+}
+
+
+function addRemoveNoteEventListener(){
+    let delete_buttons = document.getElementsByClassName("delete_note");
+    for (let delete_button of delete_buttons){
+        delete_button.addEventListener('click', removeNote); 
+    }
 }
 
 main();
