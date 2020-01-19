@@ -1,12 +1,26 @@
+
+
+
 function main() {
     // event handlers and other code here
 
     document.getElementById("add__note__button").addEventListener('click', addNewNote);
     addRemoveNoteEventListener();
+    document.addEventListener('load', restoreNotes);
     window.addEventListener('beforeunload', saveNotes);
     window.addEventListener('load', restoreNotes);
+    addChangeNoteListener();
+    
 
+}
 
+function addChangeNoteListener(){
+    let titleClassName = document.getElementsByClassName("note__title__header");
+    let textClassName = document.getElementsByClassName("note__text__input");
+    for (let i = 0; i < titleClassName.length; i++) {
+        titleClassName[i].addEventListener('onfocusout', saveNotes, false);
+        textClassName[i].addEventListener('onfocusout', saveNotes, false);
+    }
 }
 
 function addNewNote() {
@@ -30,6 +44,7 @@ function addNewNote() {
 
     document.getElementsByClassName("notes__wrapper")[0].insertAdjacentHTML('beforeend', empty_note);
     addRemoveNoteEventListener();
+    addChangeNoteListener();
 }
 
 
