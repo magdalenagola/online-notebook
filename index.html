@@ -48,19 +48,15 @@
                 <li class="note">
                     <div class="note__content-wrapper">
                         <form class="note__title" method="GET">
-                            <span class="note__title">
-                                <label for="note__title"></label>
-                                <input type="text" name="note__title" placeholder="Note title" />
-                                <br />
-                            </span>
+                            <label for="note__title"></label>
+                            <input type="text" name="note__title" class="note__title__header" placeholder="Note title" />
+                            <br />
                         </form>
                         <form class="note_text" method="GET">
-                            <span class="note_text">
                                 <label for="note_text"></label>
-                                <p class="text__area__wrapper"><textarea placeholder="Write a note here" rows="15" cols="30"
-                                        name="note_text"></textarea></p>
+                                <p class="text__area__wrapper"><textarea placeholder="Write a note here" class="note__text__input" rows="15"
+                                        cols="30" name="note_text"></textarea></p>
                                 <br />
-                            </span>
                         </form>
                         <span class="delete_note"></span>
                     </div>
