@@ -4,7 +4,7 @@ function main() {
     document.getElementById("add__note__button").addEventListener('click', addNewNote);
     addRemoveNoteEventListener();
     window.addEventListener('beforeunload', saveNotes);
-    window.addEventListener('onload', restoreNotes);
+    window.addEventListener('load', restoreNotes);
 
 
 }
@@ -32,6 +32,7 @@ function addNewNote() {
     addRemoveNoteEventListener();
 }
 
+
 function removeNote() {
     this.parentNode.parentNode.removeChild(this.parentNode);
 }
@@ -48,13 +49,13 @@ function saveNotes() {
     let titles = document.getElementsByClassName("note__title__header");
     let notesTitles = [];
     for (let noteTitle of titles) {
-        notesTitles.push(noteTitle.value);     
+        notesTitles.push(noteTitle.value);
     }
 
     let texts = document.getElementsByClassName("note__text__input");
     let notesTexts = [];
     for (let noteText of texts) {
-        notesTexts.push(noteText.value);     
+        notesTexts.push(noteText.value);
     }
     let notesContents = {
         'titles': notesTitles,
@@ -65,11 +66,20 @@ function saveNotes() {
 }
 
 function restoreNotes() {
-    const jsonTitle = localStorage.getItem('notes');
-    const noteTitle = JSON.parse(jsonTitle);
-    document.getElementsByClassName("note__title__header")[0].value = noteTitle;
+    const jsonNotesContents = localStorage.getItem('notes');
+    const notesContents = JSON.parse(jsonNotesContents);
+
+    const notesTitles = notesContents.titles;
+    const notesTexts = notesContents.texts;
+
+    for (let i = 0; i < notesTitles.length; i++) {
+        if (i != 0) {
+            addNewNote();
+        }
+        document.getElementsByClassName("note__title__header")[i].value = notesTitles[i];
+        document.getElementsByClassName("note__text__input")[i].value = notesTexts[i];
+    }
 
 }
-
 
 main();
